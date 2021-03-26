@@ -6,10 +6,13 @@ services:
       - 10080:80
     depends_on:
       - app
+    networks:
+      - web_network
     volumes:
       - ./logs/nginx:/var/log/nginx
       - ./src/web:/var/www/html
       - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
   app:
     build:
       context: ./docker/php
@@ -19,6 +22,7 @@ services:
       - db
     networks:
       - db_network
+      - web_network
     volumes:
       - ./src/web:/var/www/html
       - ./logs/php:/var/log/php
@@ -41,5 +45,6 @@ services:
       - TZ=${TZ}
 networks:
   db_network:
+  web_network:
 volumes:
   mysql:
