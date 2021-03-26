@@ -17,6 +17,8 @@ services:
         - TZ=${TZ}
     depends_on:
       - db
+    networks:
+      - db_network
     volumes:
       - ./src/web:/var/www/html
       - ./logs/php:/var/log/php
@@ -26,6 +28,8 @@ services:
   db:
     image: mysql:latest
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - db_network
     volumes:
       - mysql:/var/lib/mysql
       - ./logs/mysql:/var/log/mysql
@@ -35,5 +39,7 @@ services:
       - MYSQL_USER=${DB_USER}
       - MySQL_PASSWORD=${DB_PASS}
       - TZ=${TZ}
+networks:
+  db_network:
 volumes:
   mysql:
