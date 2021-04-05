@@ -23,7 +23,6 @@ services:
     networks:
       - web_network
       - db_network
-      - web_network
     volumes:
       - ./src/web:/var/www/html
       - ./logs/php:/var/log/php
@@ -47,6 +46,5 @@ services:
 networks:
   web_network:
   db_network:
-  web_network:
 volumes:
   mysql:
