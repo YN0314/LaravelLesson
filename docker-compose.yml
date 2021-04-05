@@ -21,8 +21,8 @@ services:
     depends_on:
       - db
     networks:
-      - db_network
       - web_network
+      - db_network
     volumes:
       - ./src/web:/var/www/html
       - ./logs/php:/var/log/php
@@ -44,7 +44,7 @@ services:
       - MySQL_PASSWORD=${DB_PASS}
       - TZ=${TZ}
 networks:
-  db_network:
   web_network:
+  db_network:
 volumes:
   mysql:
