@@ -20,7 +20,7 @@ DB_PASS=sample
    - docker-compose exec app ash
 5. execute library install
    - cd sample_app
-   - compose install
+   - composer install
 6. setting enviroment and application key
-   - cp -ip .env.exmaple .env
+   - cp -ip .env.example .env
    - php artisan key:generate

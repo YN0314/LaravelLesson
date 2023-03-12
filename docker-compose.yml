@@ -3,7 +3,7 @@ services:
   web:
     image: nginx:latest
     ports:
-      - 10080:80
+      - 20080:80
     depends_on:
       - app
     networks:
