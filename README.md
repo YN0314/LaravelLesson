@@ -24,3 +24,5 @@ DB_PASS=sample
 6. setting enviroment and application key
    - cp -ip .env.example .env
    - php artisan key:generate
+7. browser access welcome page
+   - <http://localhost:20080/>
